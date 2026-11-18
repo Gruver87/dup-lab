@@ -14,9 +14,9 @@ clone → make bootstrap → open in Cursor → skills + MCP already wired
 
 ![DUP Lab bootstrap ready](docs/assets/bootstrap-ready-v0.1.0.png)
 
-![Cursor MCP servers wired](docs/assets/cursor-mcp-panel-v0.1.0.jpg)
+![Cursor MCP servers connected](docs/assets/cursor-mcp-connected-v0.1.0.png)
 
-> Green `DUP_LAB_READY.json` + three MCP servers after `make bootstrap`. Illustration of the Cursor MCP panel; your local UI may differ slightly after reload.
+> After `make bootstrap`: green `DUP_LAB_READY.json` + `dup-policy-gate` / `dup-radar-news` / `radar-ops` connected in Cursor (project `dup-lab`).
 
 ## Quick start
 
