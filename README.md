@@ -1,17 +1,24 @@
 # DUP Lab — start here
 
 [![ci](https://github.com/Gruver87/dup-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/Gruver87/dup-lab/actions/workflows/ci.yml)
+[![release](https://img.shields.io/github/v/release/Gruver87/dup-lab?display_name=tag)](https://github.com/Gruver87/dup-lab/releases)
 
 **Org:** [DUP Labs](https://github.com/Gruver87) · **Author:** Uladzimir Dabranski  
 
-One-command onboarding for the whole Agent Skills / MCP / trust stack.  
-**Not** financial advice. **Not** a 48h soak. **Not** live trading.
+One-command onboarding for the Agent Skills / MCP / trust stack.  
+Works offline with local fixtures — **no external API keys required**.
 
 ```text
-clone → bootstrap → open in Cursor → skills + MCP already wired
+clone → make bootstrap → open in Cursor → skills + MCP already wired
 ```
 
-## Quick start (beginners)
+![DUP Lab bootstrap ready](docs/assets/bootstrap-ready-v0.1.0.png)
+
+![Cursor MCP servers wired](docs/assets/cursor-mcp-panel-v0.1.0.jpg)
+
+> Green `DUP_LAB_READY.json` + three MCP servers after `make bootstrap`. Illustration of the Cursor MCP panel; your local UI may differ slightly after reload.
+
+## Quick start
 
 ```bash
 git clone https://github.com/Gruver87/dup-lab.git
@@ -23,40 +30,44 @@ make bootstrap
 What bootstrap does automatically:
 
 1. Finds or **clones** sibling repos into `vendor/`
-2. `pip install -e` gates (eval, security-scan, policy-gate, evidence-graph, trust-plane, radar-news)
-3. Copies all Agent Skills into:
-   - `dup-lab/.agents/skills/` (this project — Cursor auto-loads)
-   - `~/.agents/skills/` and `~/.cursor/skills/` (all your projects)
-4. Writes `.cursor/mcp.json` (policy-gate + radar-news + radar-ops)
-5. Runs fixture demos (no KuCoin keys)
+2. `pip install -e` trust / guardrail packages
+3. Installs Agent Skills into project + user skill dirs (Cursor auto-loads)
+4. Writes `.cursor/mcp.json`
+5. Runs fixture demos and writes `DUP_LAB_READY.json`
 
-Then: **File → Open Folder → `dup-lab`** in Cursor (or open `dup-lab.code-workspace`).  
-Reload window once if MCP servers do not show up.
+Then open the `dup-lab` folder in Cursor (or `dup-lab.code-workspace`) and reload once if MCP servers do not appear.
 
-## Architecture (what you just wired)
+Verify anytime:
+
+```bash
+.\scripts\verify.ps1    # or: make verify
+```
+
+## Architecture
 
 ```text
-Execution     dup-agent-skills · radar-news-mcp
+Execution     agent skills pack · optional domain MCP
 Guardrails    policy-gate · skill-security-scan
 Trust         skills-eval · evidence-graph · skill-trust-plane
 ```
 
-L1 (`dup-protocol`) stays a **separate** evidence tree — see skill `l1-boundary`.
+Domain combat stands (e.g. crypto market ops) are documented separately — see [`docs/CRYPTO_STAND.md`](docs/CRYPTO_STAND.md).  
+L1 protocol evidence stays a **separate** tree — skill `l1-boundary`.
 
 ## Commands
 
 | Command | Purpose |
 |---------|---------|
 | `make bootstrap` / `.\scripts\bootstrap.ps1` | Full auto wiring |
-| `.\scripts\verify.ps1` / `make verify` | Self-check (skills + MCP + demos) |
+| `.\scripts\verify.ps1` / `make verify` | Self-check |
 | `make doctor` | Print last `DUP_LAB_READY.json` |
-| `make demos` | Re-run fixture demos only |
+| `make demos` | Re-run fixture demos |
 
 ## Honesty
 
-- Bootstrap PASS ≠ soak PASS  
-- Futures auto always refused (`FUTURES_BLOCK`)  
-- Live radar / KuCoin keys are **optional** — demos use fixtures  
+- Bootstrap PASS ≠ long soak / production claim  
+- Fixture demos need no external credentials  
+- Claims still require packs on disk when you assert readiness elsewhere  
 
 ## Related
 

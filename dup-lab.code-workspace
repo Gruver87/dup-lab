@@ -1,4 +1,4 @@
-{
+﻿{
   "folders": [
     { "path": ".", "name": "dup-lab" },
     { "path": "vendor/dup-agent-skills", "name": "skills" },

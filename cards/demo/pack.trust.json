@@ -1,0 +1,165 @@
+{
+  "tool_version": "0.1.0",
+  "pack_root": "C:\\Users\\vovun\\Desktop\\dup-skill-trust-plane\\tests\\fixtures\\good_pack",
+  "source": "Gruver87/dup-agent-skills",
+  "skill_count": 1,
+  "ok": true,
+  "verdict": "clean",
+  "pack_gates": {
+    "static": {
+      "name": "static",
+      "ok": true,
+      "available": true,
+      "detail": "skills_eval errors=0 warns=0 pin=0.1.0",
+      "findings": []
+    },
+    "security": {
+      "name": "security",
+      "ok": true,
+      "available": true,
+      "detail": "heuristic errors=0 skills=1",
+      "findings": []
+    },
+    "allowlist": {
+      "name": "allowlist",
+      "ok": true,
+      "available": true,
+      "detail": "all allowlisted",
+      "findings": []
+    },
+    "policy": {
+      "name": "policy",
+      "ok": true,
+      "available": true,
+      "detail": "FUTURES_BLOCK probe ok",
+      "findings": []
+    }
+  },
+  "skills": [
+    {
+      "name": "no-futures-auto",
+      "sha256": "c508d4a9d193b60efb471a85d9a745f3a13fa632b0602666746056d55d8b817e",
+      "verdict": "clean",
+      "gates": {
+        "static": {
+          "name": "static",
+          "ok": true,
+          "available": true,
+          "detail": "skills_eval errors=0 warns=0 pin=0.1.0",
+          "findings": []
+        },
+        "security": {
+          "name": "security",
+          "ok": true,
+          "available": true,
+          "detail": "heuristic errors=0 skills=1",
+          "findings": []
+        },
+        "allowlist": {
+          "name": "allowlist",
+          "ok": true,
+          "available": true,
+          "detail": "all allowlisted",
+          "findings": []
+        },
+        "sandbox_profile": {
+          "name": "sandbox_profile",
+          "ok": true,
+          "available": true,
+          "detail": "sandbox profile assigned",
+          "findings": []
+        }
+      },
+      "permissions": {
+        "profile": "declared_least_privilege",
+        "network": false,
+        "fs_write": false,
+        "shell": "scripts_readonly",
+        "credentials": "deny",
+        "detected": {
+          "network_refs": false,
+          "shell_refs": true,
+          "credential_refs": false,
+          "fs_write_refs": false,
+          "has_scripts": true
+        },
+        "docker_hint": {
+          "network": "none",
+          "read_only_root": true,
+          "cap_drop": [
+            "ALL"
+          ],
+          "note": "optional: docker run --network=none -v skill:/skill:ro"
+        }
+      },
+      "card": {
+        "schema": "dup.skill_card.v1",
+        "issuer": "dup-skill-trust-plane",
+        "tool_version": "0.1.0",
+        "issued_at_ms": 1794988136753,
+        "skill": "no-futures-auto",
+        "sha256": "c508d4a9d193b60efb471a85d9a745f3a13fa632b0602666746056d55d8b817e",
+        "source": "Gruver87/dup-agent-skills",
+        "pack_root": "C:\\Users\\vovun\\Desktop\\dup-skill-trust-plane\\tests\\fixtures\\good_pack",
+        "verdict": "clean",
+        "gates": {
+          "static": {
+            "name": "static",
+            "ok": true,
+            "available": true,
+            "detail": "skills_eval errors=0 warns=0 pin=0.1.0",
+            "findings": []
+          },
+          "security": {
+            "name": "security",
+            "ok": true,
+            "available": true,
+            "detail": "heuristic errors=0 skills=1",
+            "findings": []
+          },
+          "allowlist": {
+            "name": "allowlist",
+            "ok": true,
+            "available": true,
+            "detail": "all allowlisted",
+            "findings": []
+          },
+          "sandbox_profile": {
+            "name": "sandbox_profile",
+            "ok": true,
+            "available": true,
+            "detail": "sandbox profile assigned",
+            "findings": []
+          }
+        },
+        "permissions": {
+          "profile": "declared_least_privilege",
+          "network": false,
+          "fs_write": false,
+          "shell": "scripts_readonly",
+          "credentials": "deny",
+          "detected": {
+            "network_refs": false,
+            "shell_refs": true,
+            "credential_refs": false,
+            "fs_write_refs": false,
+            "has_scripts": true
+          },
+          "docker_hint": {
+            "network": "none",
+            "read_only_root": true,
+            "cap_drop": [
+              "ALL"
+            ],
+            "note": "optional: docker run --network=none -v skill:/skill:ro"
+          }
+        },
+        "installable": true,
+        "note": "fail-closed trust card — not a marketplace approval",
+        "signature": null,
+        "signature_alg": null
+      }
+    }
+  ],
+  "note": "trust plane only — not a marketplace; not financial advice; FUTURES_BLOCK unchanged"
+}
