@@ -48,6 +48,7 @@ L1 (`dup-protocol`) stays a **separate** evidence tree — see skill `l1-boundar
 | Command | Purpose |
 |---------|---------|
 | `make bootstrap` / `.\scripts\bootstrap.ps1` | Full auto wiring |
+| `.\scripts\verify.ps1` / `make verify` | Self-check (skills + MCP + demos) |
 | `make doctor` | Print last `DUP_LAB_READY.json` |
 | `make demos` | Re-run fixture demos only |
 
