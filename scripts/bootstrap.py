@@ -199,14 +199,29 @@ def write_mcp(paths: dict[str, Path], cfg: dict[str, Any]) -> dict[str, Any]:
     payload = {"mcpServers": servers}
     CURSOR_MCP.parent.mkdir(parents=True, exist_ok=True)
     CURSOR_MCP.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    # Portable template for git (no absolute python path)
-    portable: dict[str, Any] = {"mcpServers": {}}
-    for name, conf in servers.items():
-        c = dict(conf)
-        if c.get("command") == py:
-            c["command"] = "python"
-        portable["mcpServers"][name] = c
-    BUNDLE_MCP.write_text(json.dumps(portable, indent=2) + "\n", encoding="utf-8")
+    # Portable template for git (no absolute paths)
+    portable_servers: dict[str, Any] = {}
+    if "dup-policy-gate" in servers:
+        portable_servers["dup-policy-gate"] = {
+            "command": "python",
+            "args": ["-m", "policy_gate.mcp_server"],
+            "env": {},
+        }
+    if "dup-radar-news" in servers:
+        portable_servers["dup-radar-news"] = {
+            "command": "python",
+            "args": ["-m", "radar_news_mcp"],
+            "env": {"RADAR_BASE_URL": "http://127.0.0.1:8787"},
+        }
+    if "radar-ops" in servers:
+        portable_servers["radar-ops"] = {
+            "command": "python",
+            "args": ["-m", "radar_mcp"],
+            "env": {"RADAR_BASE_URL": "http://127.0.0.1:8787"},
+        }
+    BUNDLE_MCP.write_text(
+        json.dumps({"mcpServers": portable_servers}, indent=2) + "\n", encoding="utf-8"
+    )
     print(f"wrote {CURSOR_MCP.relative_to(ROOT)} ({len(servers)} MCP servers)")
     return payload
 

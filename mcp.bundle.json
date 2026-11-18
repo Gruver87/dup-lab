@@ -2,31 +2,22 @@
   "mcpServers": {
     "dup-policy-gate": {
       "command": "python",
-      "args": [
-        "-m",
-        "policy_gate.mcp_server"
-      ],
+      "args": ["-m", "policy_gate.mcp_server"],
       "env": {}
     },
     "dup-radar-news": {
       "command": "python",
-      "args": [
-        "-m",
-        "radar_news_mcp"
-      ],
+      "args": ["-m", "radar_news_mcp"],
       "env": {
         "RADAR_BASE_URL": "http://127.0.0.1:8787"
       }
     },
     "radar-ops": {
-      "command": "powershell",
-      "args": [
-        "-NoProfile",
-        "-ExecutionPolicy",
-        "Bypass",
-        "-File",
-        "C:\\Users\\vovun\\Desktop\\dup-agent-skills\\scripts\\run_radar_mcp.ps1"
-      ]
+      "command": "python",
+      "args": ["-m", "radar_mcp"],
+      "env": {
+        "RADAR_BASE_URL": "http://127.0.0.1:8787"
+      }
     }
   }
 }
