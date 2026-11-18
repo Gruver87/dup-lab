@@ -1,0 +1,18 @@
+{
+  "folders": [
+    { "path": ".", "name": "dup-lab" },
+    { "path": "vendor/dup-agent-skills", "name": "skills" },
+    { "path": "vendor/dup-skill-trust-plane", "name": "trust-plane" },
+    { "path": "vendor/dup-skills-eval", "name": "skills-eval" },
+    { "path": "vendor/dup-evidence-graph", "name": "evidence-graph" },
+    { "path": "vendor/dup-policy-gate", "name": "policy-gate" },
+    { "path": "vendor/dup-skill-security-scan", "name": "security-scan" },
+    { "path": "vendor/dup-radar-news-mcp", "name": "radar-news-mcp" }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.pytest_cache": true
+    }
+  }
+}

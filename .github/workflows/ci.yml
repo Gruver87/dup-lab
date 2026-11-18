@@ -1,0 +1,41 @@
+name: CI
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  bootstrap-smoke:
+    name: Bootstrap smoke (fixtures)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Bootstrap
+        run: |
+          python -m pip install -U pip
+          python scripts/bootstrap.py --clone
+
+      - name: Assert wired
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          ready = json.loads(Path("DUP_LAB_READY.json").read_text())
+          assert ready.get("bootstrap_wired") is True, ready
+          assert ready.get("skills_count", 0) >= 8, ready
+          assert Path(".cursor/mcp.json").is_file()
+          assert Path(".agents/skills").is_dir()
+          print("OK", ready["skills_count"], "skills", ready.get("mcp_servers"))
+          PY

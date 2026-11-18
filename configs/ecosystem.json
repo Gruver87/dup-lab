@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "product": "dup-lab",
+  "note": "Orchestrator only — not a soak claim, not live money, not financial advice.",
+  "siblings": [
+    {
+      "id": "dup-agent-skills",
+      "github": "https://github.com/Gruver87/dup-agent-skills.git",
+      "role": "skills_pack",
+      "install_skills": true,
+      "pip": false
+    },
+    {
+      "id": "dup-skills-eval",
+      "github": "https://github.com/Gruver87/dup-skills-eval.git",
+      "role": "gate",
+      "pip": true,
+      "demo": ["python", "-m", "skills_eval", "--demo"]
+    },
+    {
+      "id": "dup-skill-security-scan",
+      "github": "https://github.com/Gruver87/dup-skill-security-scan.git",
+      "role": "gate",
+      "pip": true,
+      "demo": ["python", "-m", "skill_security", "scan", "tests/fixtures/good_pack", "--skip-allowlist", "--no-report"]
+    },
+    {
+      "id": "dup-policy-gate",
+      "github": "https://github.com/Gruver87/dup-policy-gate.git",
+      "role": "gate",
+      "pip": true,
+      "mcp": "policy_gate.mcp_server"
+    },
+    {
+      "id": "dup-evidence-graph",
+      "github": "https://github.com/Gruver87/dup-evidence-graph.git",
+      "role": "gate",
+      "pip": true,
+      "demo": ["python", "-m", "evidence_graph", "demo"]
+    },
+    {
+      "id": "dup-skill-trust-plane",
+      "github": "https://github.com/Gruver87/dup-skill-trust-plane.git",
+      "role": "control_plane",
+      "pip": true,
+      "demo": ["python", "-m", "skill_trust", "demo"]
+    },
+    {
+      "id": "dup-radar-news-mcp",
+      "github": "https://github.com/Gruver87/dup-radar-news-mcp.git",
+      "role": "mcp",
+      "pip": true,
+      "mcp": "radar_news_mcp",
+      "demo": ["python", "-m", "radar_news_mcp.demo"],
+      "needs_radar": false
+    }
+  ],
+  "optional_live": [
+    {
+      "id": "dup-market-radar",
+      "github": "https://github.com/Gruver87/dup-market-radar.git",
+      "role": "execution",
+      "pip": false,
+      "clone_default": false,
+      "note": "Live radar optional — not required for bootstrap demos"
+    }
+  ]
+}
