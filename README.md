@@ -62,12 +62,29 @@ L1 protocol evidence stays a **separate** tree — skill `l1-boundary`.
 | `.\scripts\verify.ps1` / `make verify` | Self-check |
 | `make doctor` | Print last `DUP_LAB_READY.json` |
 | `make demos` | Re-run fixture demos |
+| `make promo` / `python scripts/promo_teaser.py` | README → ~30s teaser |
 
 ## Honesty
 
 - Bootstrap PASS ≠ long soak / production claim  
 - Fixture demos need no external credentials  
 - Claims still require packs on disk when you assert readiness elsewhere  
+
+## Promo
+
+Generate a **~30s TikTok / Reels teaser** from this README via
+[`dup-content-engine`](https://github.com/Gruver87/dup-content-engine):
+
+```bash
+# sibling clone: ../dup-content-engine
+python scripts/promo_teaser.py
+# offline TTS:
+python scripts/promo_teaser.py --offline-tts
+# or: make promo
+```
+
+Artifacts land in `out/promo/` (+ `export/` drop folder). Upload the mp4 **manually**.  
+Gate `ALLOW` ≠ audience growth. Full guide: [`docs/PROMO.md`](docs/PROMO.md).
 
 ## Related
 
@@ -76,6 +93,7 @@ L1 protocol evidence stays a **separate** tree — skill `l1-boundary`.
 | [`dup-agent-skills`](https://github.com/Gruver87/dup-agent-skills) | Skills pack source |
 | [`dup-skill-trust-plane`](https://github.com/Gruver87/dup-skill-trust-plane) | Control plane |
 | [`dup-skills-eval`](https://github.com/Gruver87/dup-skills-eval) | Eval gate |
+| [`dup-content-engine`](https://github.com/Gruver87/dup-content-engine) | Fail-closed Shorts / teaser pipeline |
 | Profile | [github.com/Gruver87](https://github.com/Gruver87) |
 
 ## License

@@ -1,4 +1,4 @@
-.PHONY: bootstrap doctor demos verify clean-vendor
+.PHONY: bootstrap doctor demos verify promo promo-offline clean-vendor
 
 bootstrap:
 	python scripts/bootstrap.py
@@ -11,6 +11,12 @@ demos:
 
 verify:
 	@bash scripts/verify.sh 2>/dev/null || python -c "import subprocess,sys; sys.exit(subprocess.call(['powershell','-NoProfile','-ExecutionPolicy','Bypass','-File','scripts/verify.ps1']))"
+
+promo:
+	python scripts/promo_teaser.py
+
+promo-offline:
+	python scripts/promo_teaser.py --offline-tts
 
 clean-vendor:
 	rm -rf vendor

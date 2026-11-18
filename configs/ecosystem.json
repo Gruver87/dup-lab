@@ -63,6 +63,14 @@
       "pip": false,
       "clone_default": false,
       "note": "Live radar optional — not required for bootstrap demos"
+    },
+    {
+      "id": "dup-content-engine",
+      "github": "https://github.com/Gruver87/dup-content-engine.git",
+      "role": "promo",
+      "pip": true,
+      "clone_default": false,
+      "note": "Optional — README → Shorts teaser (scripts/promo_teaser.py); not a soak claim"
     }
   ]
 }

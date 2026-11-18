@@ -1,5 +1,11 @@
 # Changelog — dup-lab
 
+## v0.1.1 — 2026-11-18
+
+- Promo path: `scripts/promo_teaser.py` + `docs/PROMO.md` — README → ~30s TikTok/Reels teaser via `dup-content-engine`
+- `make promo` / `make promo-offline`
+- Honesty: ALLOW ≠ growth; manual upload only
+
 ## v0.1.0 — 2026-11-18
 
 - First public orchestrator release
