@@ -86,6 +86,8 @@ python scripts/promo_teaser.py --offline-tts
 Artifacts land in `out/promo/` (+ `export/` drop folder). Upload the mp4 **manually**.  
 Gate `ALLOW` ≠ audience growth. Full guide: [`docs/PROMO.md`](docs/PROMO.md).
 
+For a daily offline series (best A/B hook, calendar, no keys yet) see engine commands in `docs/PROMO.md` → **Beyond the teaser**.
+
 ## Related
 
 | Repo | Role |

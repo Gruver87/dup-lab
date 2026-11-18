@@ -40,6 +40,20 @@ make promo
 make promo-offline
 ```
 
+## Beyond the teaser (engine v0.1.5+)
+
+From the sibling `dup-content-engine` checkout (still **no API keys** required):
+
+```bash
+cd ../dup-content-engine
+python -m content_engine calendar topics.example.txt
+python -m content_engine day topics.example.txt          # best A/B hook → offline render
+python -m content_engine series topics.example.txt --limit 3
+# Keys later: youtube / tiktok --dry-run / instagram --dry-run
+```
+
+Artifacts: `out/series/*/AB_REPORT.html`, `verified_pack_*.json`, `.srt`, `.thumb.jpg`.
+
 ## What you get
 
 Under `out/promo/`:

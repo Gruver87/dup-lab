@@ -1,5 +1,9 @@
 # Changelog — dup-lab
 
+## v0.1.2 — 2026-11-18
+
+- Promo docs: link engine `day` / `series` / calendar offline flow (keys later)
+
 ## v0.1.1 — 2026-11-18
 
 - Promo path: `scripts/promo_teaser.py` + `docs/PROMO.md` — README → ~30s TikTok/Reels teaser via `dup-content-engine`
