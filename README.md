@@ -5,6 +5,13 @@
 
 **Org:** [DUP Labs](https://github.com/Gruver87) · **Author:** Uladzimir Dabranski  
 
+## Простыми словами
+
+Это **стартовая коробка**: одна команда скачивает соседние репозитории, ставит навыки для Cursor и MCP-серверы.  
+Ключи биржи **не нужны**. После bootstrap откройте папку в Cursor — навыки уже подключены.
+
+Дальше по желанию: смотреть рынок → [`dup-market-radar`](https://github.com/Gruver87/dup-market-radar) ([START_HERE](https://github.com/Gruver87/dup-market-radar/blob/main/docs/START_HERE.md)).
+
 One-command onboarding for the Agent Skills / MCP / trust stack.  
 Works offline with local fixtures — **no external API keys required**.
 
